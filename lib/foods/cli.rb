@@ -5,6 +5,6 @@ class Cli
     puts " "
     puts "Enter a meal name to see what this meal is about"
     @food = gets.strip.downcase
-    Api.get_meals(@food)
+    Api.get_meal(@food)
   end
 end
