@@ -4,4 +4,4 @@ require "json"
 
 require_relative "./foods/cli"
 require_relative "./foods/api"
-require_relative "./foods/meals"
+require_relative "./foods/meal"

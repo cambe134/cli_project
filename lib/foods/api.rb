@@ -1,12 +1,11 @@
 class Api
-  def self.get_meal(name)
+  def self.get_meals(name)
     url = "https://www.themealdb.com/api/json/v1/1/search.php?s=#{name}"
     response = Net::HTTP.get(URI(url))
-   meal = JSON.parse(response)["meal"][0]
-   meal.each do |meal_details|
-   Meal.new(meal_details)
-    binding.pry
-    Meal.new(name, meal_id)
+    meals = JSON.parse(response)["meals"]
+    meals.each do |meal_details|
+      Meal.new(name: meal_details["strMeal"], meal_id: meal_details["idMeal"])
     end
+    binding.pry
   end
 end
