@@ -13,5 +13,7 @@ class Meal
  def self.all 
   @@all
  end
+ def self.find_by_name(name)
+   self.all.select {|meal| meal.name == name}
 
 end
