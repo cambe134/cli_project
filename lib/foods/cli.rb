@@ -5,8 +5,8 @@ class Cli
     puts " "
     puts "Enter a meal name to see what this meal is about"
     @meal = gets.strip.downcase
-    Api.get_meals(@meal)
-    print_meals(Meal.all)
+    Api.get_meal(@meal)
+    print_meal(Meal.all)
     prompt_user
     input gets.strip.downcase
     
@@ -15,7 +15,7 @@ class Cli
       meals = Meal.select_by_name(@meal)
       print_meals(meals)
      elsif input.to_i > 0 && input.to_i < meals.length
-      meal = meals[input.to_i - 1]
+      meal = meal[input.to_i - 1]
       Api.getMealDetails(meal)
       
     else 
