@@ -9,6 +9,7 @@ class Cli
     print_meals(Meal.all)
     prompt_user
     input gets.strip.downcase
+    
     while input != "exit"
     if input == 'list'
       meals = Meal.select_by_name(@meal)
@@ -16,6 +17,7 @@ class Cli
      elsif input.to_i > 0 && input.to_i < meals.length
       meal = meals[input.to_i - 1]
       Api.getMealDetails(meal)
+      
     else 
       puts "Try again"
   end
@@ -25,10 +27,11 @@ class Cli
   puts " "
   puts "bye!"
  end
+ 
  def print_meal(meals)
    puts "Here are the meals listed #{@meal}"
    meals.each.with_index(1) do |meal, index|
-     puts "#{index}. #{drink.name}"
+     puts "#{index}. #{meal.name}"
    end
    puts " "
  end 
